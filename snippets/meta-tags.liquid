@@ -1,0 +1,21 @@
+{%- if template.name == 'index' -%}
+  <title>{{ shop.name }}</title>
+{%- else -%}
+  <title>{{ page_title }} | {{ shop.name }}</title>
+{%- endif -%}
+
+<meta name="description" content="{{ page_description | default: shop.description | escape }}">
+<meta name="keywords" content="{{ shop.metafields.global.keywords | default: shop.name | escape }}">
+
+{%- if template.name == 'product' -%}
+  <meta property="og:type" content="product">
+  <meta property="og:title" content="{{ product.title | escape }}">
+  <meta property="og:description" content="{{ product.description | strip_html | truncate: 200 | escape }}">
+  <meta property="og:image" content="{{ product.featured_image | image_url: width: 1200 }}">
+  <meta property="og:url" content="{{ shop.url }}{{ product.url }}">
+  <meta property="og:site_name" content="{{ shop.name }}">
+{%- endif -%}
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ page_title | escape }}">
+<meta name="twitter:description" content="{{ page_description | default: shop.description | escape }}"> 

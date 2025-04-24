@@ -1,17 +1,41 @@
 {
   "accessibility": {
-    "skip_to_text": "Skip to main content"
+    "skip_to_text": "Skip to main content",
+    "refresh_page": "Refresh page"
   },
   "general": {
     "pagination": {
       "label": "Pagination",
       "previous": "Previous page",
       "next": "Next page"
+    },
+    "share": {
+      "success_message": "Successfully shared"
     }
   },
   "collections": {
     "sorting": {
       "title": "Sort by"
+    }
+  },
+  "sections": {
+    "cart": {
+      "cart_error": "There was an error updating your cart",
+      "cart_quantity_error_html": "You can only add [quantity] of this item to your cart"
+    },
+    "slideshow": {
+      "pause_slideshow": "Pause slideshow",
+      "play_slideshow": "Play slideshow"
+    }
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to cart",
+      "sold_out": "Sold out",
+      "unavailable": "Unavailable",
+      "media": {
+        "image_available": "Image [index]"
+      }
     }
   }
 } 
