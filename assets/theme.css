@@ -1,0 +1,48 @@
+:root {
+  --color-primary: #E94B4B;
+  --color-text: #1a1a1a;
+  --color-text-light: #4a4a4a;
+  --color-background: #ffffff;
+  --color-border: rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  color: var(--color-text);
+  background: var(--color-background);
+  line-height: 1.5;
+}
+
+.page-width {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-to-content-link {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateY(-100%);
+  background: var(--color-primary);
+  color: white;
+  padding: 8px;
+  z-index: 100;
+  transition: transform 0.1s;
+}
+
+.skip-to-content-link:focus {
+  transform: translateY(0%);
+} 

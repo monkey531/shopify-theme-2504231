@@ -1,0 +1,51 @@
+{%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
+
+<div class="collection-filters">
+  <div class="collection-filters__sort">
+    <label for="SortBy">{{ 'collections.sorting.title' | t }}</label>
+    <select name="sort_by" id="SortBy" class="collection-filters__select">
+      {%- for option in collection.sort_options -%}
+        <option value="{{ option.value }}" {% if option.value == sort_by %}selected{% endif %}>
+          {{ option.name }}
+        </option>
+      {%- endfor -%}
+    </select>
+  </div>
+
+  {%- if collection.filters.size > 0 -%}
+    <div class="collection-filters__group">
+      {%- for filter in collection.filters -%}
+        <details class="collection-filters__filter" {% if filter.active_values.size > 0 %}open{% endif %}>
+          <summary>{{ filter.label }}</summary>
+          <div class="collection-filters__options">
+            {%- case filter.type -%}
+              {%- when 'boolean' or 'list' -%}
+                {%- for value in filter.values -%}
+                  <label class="collection-filters__option">
+                    <input type="checkbox" 
+                           name="{{ value.param_name }}"
+                           value="{{ value.value }}"
+                           {% if value.active %}checked{% endif %}
+                           data-filter-update>
+                    {{ value.label }}
+                    ({{ value.count }})
+                  </label>
+                {%- endfor -%}
+              {%- when 'price_range' -%}
+                <div class="collection-filters__price">
+                  <input type="number" 
+                         name="{{ filter.min_value.param_name }}"
+                         value="{{ filter.min_value.value }}"
+                         placeholder="{{ filter.min_value.placeholder }}">
+                  <input type="number"
+                         name="{{ filter.max_value.param_name }}"
+                         value="{{ filter.max_value.value }}"
+                         placeholder="{{ filter.max_value.placeholder }}">
+                </div>
+            {%- endcase -%}
+          </div>
+        </details>
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+</div> 

@@ -1,0 +1,227 @@
+{% style %}
+.order-management {
+  padding: 60px 0;
+  background: #ffffff;
+}
+
+.order-management__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.order-management__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.order-management__title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+}
+
+.order-management__filters {
+  display: flex;
+  gap: 16px;
+}
+
+.order-management__filter {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.order-management__filter:hover {
+  background: #f5f5f5;
+}
+
+.order-management__filter--active {
+  background: #E32B2B;
+  color: white;
+  border-color: #E32B2B;
+}
+
+.order-management__table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.order-management__table th {
+  background: #f5f5f5;
+  padding: 16px;
+  text-align: left;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 2px solid #eee;
+}
+
+.order-management__table td {
+  padding: 16px;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+}
+
+.order-management__table tr:last-child td {
+  border-bottom: none;
+}
+
+.order-management__order-number {
+  font-weight: 500;
+  color: #333;
+  text-decoration: none;
+}
+
+.order-management__order-number:hover {
+  color: #E32B2B;
+}
+
+.order-management__status {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.order-management__status--pending {
+  background: #F59E0B;
+  color: white;
+}
+
+.order-management__status--processing {
+  background: #3B82F6;
+  color: white;
+}
+
+.order-management__status--shipped {
+  background: #22C55E;
+  color: white;
+}
+
+.order-management__status--delivered {
+  background: #10B981;
+  color: white;
+}
+
+.order-management__status--cancelled {
+  background: #EF4444;
+  color: white;
+}
+
+.order-management__total {
+  font-weight: 600;
+  color: #333;
+}
+
+.order-management__actions {
+  display: flex;
+  gap: 8px;
+}
+
+.order-management__button {
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.order-management__button--view {
+  background: #f5f5f5;
+  color: #333;
+}
+
+.order-management__button--update {
+  background: #3B82F6;
+  color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .order-management__table {
+    display: block;
+    overflow-x: auto;
+  }
+  
+  .order-management__filters {
+    flex-wrap: wrap;
+  }
+}
+{% endstyle %}
+
+<div class="order-management">
+  <div class="order-management__container">
+    <div class="order-management__header">
+      <h2 class="order-management__title">Orders</h2>
+      <div class="order-management__filters">
+        <button class="order-management__filter order-management__filter--active">All</button>
+        <button class="order-management__filter">Pending</button>
+        <button class="order-management__filter">Processing</button>
+        <button class="order-management__filter">Shipped</button>
+        <button class="order-management__filter">Delivered</button>
+        <button class="order-management__filter">Cancelled</button>
+      </div>
+    </div>
+
+    <table class="order-management__table">
+      <thead>
+        <tr>
+          <th>Order #</th>
+          <th>Date</th>
+          <th>Customer</th>
+          <th>Status</th>
+          <th>Total</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for order in shop.orders %}
+          <tr>
+            <td>
+              <a href="/admin/orders/{{ order.id }}" class="order-management__order-number">
+                #{{ order.order_number }}
+              </a>
+            </td>
+            <td>{{ order.created_at | date: "%b %d, %Y" }}</td>
+            <td>{{ order.customer.name }}</td>
+            <td>
+              <span class="order-management__status order-management__status--{{ order.fulfillment_status }}">
+                {{ order.fulfillment_status | capitalize }}
+              </span>
+            </td>
+            <td class="order-management__total">{{ order.total_price | money }}</td>
+            <td>
+              <div class="order-management__actions">
+                <a href="/admin/orders/{{ order.id }}" class="order-management__button order-management__button--view">View</a>
+                <a href="/admin/orders/{{ order.id }}/edit" class="order-management__button order-management__button--update">Update</a>
+              </div>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Order Management",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Order Management",
+      "category": "Management"
+    }
+  ]
+}
+{% endschema %} 

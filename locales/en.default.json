@@ -1,0 +1,17 @@
+{
+  "accessibility": {
+    "skip_to_text": "Skip to main content"
+  },
+  "general": {
+    "pagination": {
+      "label": "Pagination",
+      "previous": "Previous page",
+      "next": "Next page"
+    }
+  },
+  "collections": {
+    "sorting": {
+      "title": "Sort by"
+    }
+  }
+} 

@@ -1,0 +1,213 @@
+{% style %}
+.satisfaction {
+  padding: 80px 0;
+  background-color: #ffffff;
+}
+
+.satisfaction__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.trustpilot {
+  background-color: #B84C24;
+  padding: 40px;
+  border-radius: 8px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.trustpilot__title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.trustpilot__subtitle {
+  font-size: 20px;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+.trustpilot__stars {
+  background-color: #00B67A;
+  padding: 15px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.trustpilot__star {
+  width: 32px;
+  height: 32px;
+  fill: #ffffff;
+}
+
+.trustpilot__logo {
+  width: 80px;
+  height: auto;
+}
+
+.metrics {
+  padding-top: 20px;
+}
+
+.metrics__title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.metric {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.metric:last-child {
+  border-bottom: none;
+}
+
+.metric__chart {
+  width: 60px;
+  height: 60px;
+}
+
+.metric__text {
+  flex: 1;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.metric__circle {
+  fill: none;
+  stroke: #E32B2B;
+  stroke-width: 8;
+  stroke-linecap: round;
+}
+
+.metric__background {
+  fill: none;
+  stroke: #f0f0f0;
+  stroke-width: 8;
+}
+
+.metrics__footer {
+  font-size: 14px;
+  color: #666;
+  margin-top: 30px;
+}
+
+@media screen and (max-width: 768px) {
+  .satisfaction__container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+{% endstyle %}
+
+<div class="satisfaction">
+  <div class="satisfaction__container">
+    <div class="trustpilot">
+      <h2 class="trustpilot__title">homedrop.co.uk<br>is rated Excellent</h2>
+      <p class="trustpilot__subtitle">Based on 238 reviews</p>
+      <div class="trustpilot__stars">
+        {% for i in (1..5) %}
+          <svg class="trustpilot__star" viewBox="0 0 24 24">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+        {% endfor %}
+      </div>
+      {% render 'icon-trustpilot' %}
+    </div>
+
+    <div class="metrics">
+      <h2 class="metrics__title">Customer Satisfaction</h2>
+      
+      {% for metric in section.blocks %}
+        <div class="metric">
+          <svg class="metric__chart" viewBox="0 0 36 36">
+            <circle class="metric__background" cx="18" cy="18" r="15.91549430918954"/>
+            <circle class="metric__circle" 
+                    cx="18" 
+                    cy="18" 
+                    r="15.91549430918954" 
+                    stroke-dasharray="{{ metric.settings.percentage }} 100"
+                    transform="rotate(-90 18 18)"/>
+          </svg>
+          <p class="metric__text">{{ metric.settings.text }}</p>
+        </div>
+      {% endfor %}
+
+      <p class="metrics__footer">Based on customer surveys from over 50,000 transaction shoppers in 2021-2024.</p>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Customer Satisfaction",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "metric",
+      "name": "Satisfaction Metric",
+      "settings": [
+        {
+          "type": "number",
+          "id": "percentage",
+          "label": "Percentage",
+          "default": 75
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Metric Text",
+          "default": "Of customers report major savings compared to shopping at traditional garden retailers."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Customer Satisfaction",
+      "blocks": [
+        {
+          "type": "metric",
+          "settings": {
+            "percentage": 75,
+            "text": "Of customers report major savings compared to shopping at traditional garden retailers."
+          }
+        },
+        {
+          "type": "metric",
+          "settings": {
+            "percentage": 75,
+            "text": "Of our tools and equipment meet or exceed the quality standards of leading branded products."
+          }
+        },
+        {
+          "type": "metric",
+          "settings": {
+            "percentage": 75,
+            "text": "Of customers return to purchase again within 6 months due to satisfaction with previous purchases."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %} 

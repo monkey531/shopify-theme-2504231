@@ -1,0 +1,109 @@
+{% style %}
+.footer {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  padding: 40px 0;
+}
+
+.footer__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.footer__logo {
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.footer__section-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.footer__links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer__link {
+  margin-bottom: 12px;
+}
+
+.footer__link a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: opacity 0.3s ease;
+}
+
+.footer__link a:hover {
+  opacity: 0.8;
+}
+
+.footer__address {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #ffffff;
+}
+
+@media screen and (max-width: 768px) {
+  .footer__container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .footer__logo {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+{% endstyle %}
+
+<footer class="footer">
+  <div class="footer__container">
+    <div class="footer__section">
+      <a href="/" class="footer__logo">HomeDrop.</a>
+    </div>
+
+    <div class="footer__section">
+      <h2 class="footer__section-title">Quick links.</h2>
+      <ul class="footer__links">
+        <li class="footer__link">
+          <a href="/search">Search</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__section">
+      <h2 class="footer__section-title">HomeDrop LTD</h2>
+      <p class="footer__address">
+        UNIT 11, The Atrium, Park St,<br>
+        London, GU15 3GP
+      </p>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Footer"
+    }
+  ]
+}
+{% endschema %} 

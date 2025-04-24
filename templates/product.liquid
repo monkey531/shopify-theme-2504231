@@ -1,0 +1,273 @@
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+
+<div class="product-page">
+  <div class="page-width">
+    <div class="product-grid">
+      <div class="product-gallery">
+        <div class="product-gallery__main">
+          <img 
+            src="{{ product.featured_image | img_url: 'large' }}"
+            alt="{{ product.featured_image.alt | escape }}"
+            class="product-gallery__image"
+            id="ProductMainImage"
+            width="600"
+            height="600"
+            loading="lazy"
+          >
+        </div>
+        {% if product.images.size > 1 %}
+          <div class="product-gallery__thumbnails">
+            {% for image in product.images %}
+              <button 
+                class="product-gallery__thumbnail{% if forloop.first %} is-active{% endif %}"
+                data-image-id="{{ image.id }}"
+                data-image-url="{{ image | img_url: 'large' }}"
+              >
+                <img 
+                  src="{{ image | img_url: 'small' }}"
+                  alt="{{ image.alt | escape }}"
+                  width="100"
+                  height="100"
+                  loading="lazy"
+                >
+              </button>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="product-details">
+        <h1 class="product-title">{{ product.title }}</h1>
+        
+        <div class="product-price">
+          <span class="product-price__regular{% if current_variant.compare_at_price > current_variant.price %} on-sale{% endif %}">
+            {{ current_variant.price | money }}
+          </span>
+          {% if current_variant.compare_at_price > current_variant.price %}
+            <span class="product-price__compare">{{ current_variant.compare_at_price | money }}</span>
+            <span class="product-price__savings">
+              Save {{ current_variant.compare_at_price | minus: current_variant.price | money }}
+            </span>
+          {% endif %}
+        </div>
+
+        {% form 'product', product %}
+          <input type="hidden" name="id" value="{{ current_variant.id }}">
+
+          {% if product.variants.size > 1 %}
+            {% for option in product.options_with_values %}
+              <div class="product-form__field">
+                <label class="product-form__label" for="Option{{ forloop.index }}">
+                  {{ option.name }}
+                </label>
+                <select 
+                  id="Option{{ forloop.index }}"
+                  class="product-form__select"
+                  name="options[{{ option.name | escape }}]"
+                >
+                  {% for value in option.values %}
+                    <option 
+                      value="{{ value | escape }}"
+                      {% if option.selected_value == value %}selected="selected"{% endif %}
+                    >
+                      {{ value }}
+                    </option>
+                  {% endfor %}
+                </select>
+              </div>
+            {% endfor %}
+          {% endif %}
+
+          <div class="product-form__field">
+            <label class="product-form__label" for="Quantity">Quantity</label>
+            <input 
+              type="number"
+              id="Quantity"
+              name="quantity"
+              value="1"
+              min="1"
+              class="product-form__input"
+            >
+          </div>
+
+          <button
+            type="submit"
+            name="add"
+            class="product-form__submit"
+            {% unless current_variant.available %}disabled{% endunless %}
+          >
+            {% if current_variant.available %}
+              Add to Cart
+            {% else %}
+              Sold Out
+            {% endif %}
+          </button>
+        {% endform %}
+
+        {% if product.description != blank %}
+          <div class="product-description">
+            <h2 class="product-description__title">Description</h2>
+            <div class="rte">
+              {{ product.description }}
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.product-page {
+  padding: 60px 0;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.product-gallery__main {
+  margin-bottom: 20px;
+}
+
+.product-gallery__image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.product-gallery__thumbnails {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.product-gallery__thumbnail {
+  width: 100px;
+  height: 100px;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.product-gallery__thumbnail.is-active {
+  border-color: var(--color-primary);
+}
+
+.product-gallery__thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.product-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #1a1a1a;
+}
+
+.product-price {
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.product-price__regular {
+  font-weight: 600;
+}
+
+.product-price__regular.on-sale {
+  color: var(--color-primary);
+}
+
+.product-price__compare {
+  text-decoration: line-through;
+  color: #999;
+  margin-left: 10px;
+}
+
+.product-price__savings {
+  display: block;
+  color: var(--color-primary);
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+.product-form__field {
+  margin-bottom: 20px;
+}
+
+.product-form__label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.product-form__select,
+.product-form__input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.product-form__submit {
+  width: 100%;
+  padding: 15px;
+  background: var(--color-primary);
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.product-form__submit:hover {
+  background-color: #d43d3d;
+}
+
+.product-form__submit:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+.product-description {
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 1px solid #eee;
+}
+
+.product-description__title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.rte {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #4a4a4a;
+}
+
+@media screen and (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Product Page"
+}
+{% endschema %} 

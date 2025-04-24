@@ -1,0 +1,116 @@
+{% style %}
+.collection-list {
+  padding: 80px 0;
+  background: #ffffff;
+}
+
+.collection-list__title {
+  font-size: 32px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #1a1a1a;
+}
+
+.collection-list__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.collection-card {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+  padding: 30px;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100px;
+}
+
+.collection-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+.collection-card__title {
+  font-size: 18px;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.collection-card__arrow {
+  width: 20px;
+  height: 20px;
+  color: #1a1a1a;
+  opacity: 0.5;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.collection-card:hover .collection-card__arrow {
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+@media screen and (max-width: 768px) {
+  .collection-list {
+    padding: 60px 0;
+  }
+
+  .collection-list__grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .collection-list__title {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+}
+{% endstyle %}
+
+<div class="collection-list">
+  <h2 class="collection-list__title">Collections</h2>
+  
+  <div class="collection-list__grid">
+    {% for collection in collections %}
+      <a href="{{ collection.url }}" class="collection-card">
+        <h3 class="collection-card__title">{{ collection.title }}</h3>
+        <svg class="collection-card__arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    {% endfor %}
+
+    {% comment %}Fallback if no collections{% endcomment %}
+    {% if collections.size == 0 %}
+      {% for i in (1..3) %}
+        <a href="#" class="collection-card">
+          <h3 class="collection-card__title">Your collection's name</h3>
+          <svg class="collection-card__arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      {% endfor %}
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Collection List",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Collection List"
+    }
+  ]
+}
+{% endschema %} 

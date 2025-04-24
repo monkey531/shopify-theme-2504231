@@ -1,0 +1,119 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "title": "CLEARANCE SALE!",
+        "subtitle": "ALL ITEMS UP TO 90% OFF",
+        "button_text": "DON'T MISS OUT!",
+        "button_link": "/collections/all"
+      }
+    },
+    "price_benefits": {
+      "type": "price-benefits",
+      "settings": {}
+    },
+    "trust_badges": {
+      "type": "trust-badges",
+      "settings": {
+        "title": "Why Choose Us?"
+      },
+      "blocks": {
+        "shipping": {
+          "type": "feature",
+          "settings": {
+            "feature": "Same Day Shipping"
+          }
+        },
+        "refund": {
+          "type": "feature",
+          "settings": {
+            "feature": "90 Day Refund"
+          }
+        },
+        "quality": {
+          "type": "feature",
+          "settings": {
+            "feature": "Human Quality-Verified Products"
+          }
+        }
+      },
+      "block_order": [
+        "shipping",
+        "refund",
+        "quality"
+      ]
+    },
+    "collections": {
+      "type": "collection-list",
+      "settings": {
+        "title": "Collections",
+        "collection_1": "",
+        "collection_1_title": "Your collection's name",
+        "collection_2": "",
+        "collection_2_title": "Your collection's name",
+        "collection_3": "",
+        "collection_3_title": "Your collection's name"
+      }
+    },
+    "promise": {
+      "type": "promise",
+      "settings": {}
+    },
+    "clearance_deals": {
+      "type": "clearance-deals",
+      "settings": {
+        "title": "Clearance Deals",
+        "subtitle": "Premium garden tools and home essentials at unbeatable UK prices",
+        "button_text": "Shop Now",
+        "button_link": "/collections/clearance"
+      }
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "settings": {
+        "title": "Testimonials"
+      },
+      "blocks": {
+        "review1": {
+          "type": "testimonial",
+          "settings": {
+            "author": "Jamie • Manchester",
+            "rating": 5,
+            "content": "Was really happy by the speed of the shipping. Got my order within 24 hours. Great service!"
+          }
+        },
+        "review2": {
+          "type": "testimonial",
+          "settings": {
+            "author": "Ben P • Leeds",
+            "rating": 5,
+            "content": "Had my eye on a product for a year. It was 75% off and best deal I've seen."
+          }
+        },
+        "review3": {
+          "type": "testimonial",
+          "settings": {
+            "author": "Claire S • London",
+            "rating": 5,
+            "content": "I had some outstanding issues and they were resolved in minutes."
+          }
+        }
+      },
+      "block_order": [
+        "review1",
+        "review2",
+        "review3"
+      ]
+    }
+  },
+  "order": [
+    "hero",
+    "price_benefits",
+    "trust_badges",
+    "collections",
+    "promise",
+    "clearance_deals",
+    "testimonials"
+  ]
+} 

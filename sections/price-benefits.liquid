@@ -1,0 +1,200 @@
+{% style %}
+.price-benefits {
+  padding: 80px 0;
+  background-color: #ffffff;
+}
+
+.price-benefits__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.price-benefits__text {
+  text-align: center;
+}
+
+.price-benefits__title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #333;
+  line-height: 1.2;
+}
+
+.price-benefits__description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.price-benefits__note {
+  font-size: 14px;
+  color: #666;
+}
+
+.process {
+  padding: 20px;
+}
+
+.process__title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.process__steps {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: relative;
+}
+
+.process__steps::after {
+  content: '';
+  position: absolute;
+  top: 40px;
+  left: 100px;
+  right: 100px;
+  height: 2px;
+  background: #ddd;
+  z-index: 1;
+}
+
+.process__step {
+  text-align: center;
+  flex: 1;
+  position: relative;
+  z-index: 2;
+  max-width: 180px;
+}
+
+.process__icon-wrapper {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 15px;
+  position: relative;
+  background: white;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.process__icon {
+  width: 100%;
+  height: 100%;
+  color: #333;
+}
+
+.process__discount-badge {
+  background: #F4A460;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: -10px;
+  right: -20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 1.2;
+  padding: 8px;
+}
+
+.process__label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.process__sublabel {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.4;
+}
+
+@media screen and (max-width: 768px) {
+  .price-benefits__container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .process__steps {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .process__steps::after {
+    display: none;
+  }
+
+  .process__step {
+    max-width: 100%;
+  }
+}
+{% endstyle %}
+
+<div class="price-benefits">
+  <div class="price-benefits__container">
+    <div class="price-benefits__text">
+      <h2 class="price-benefits__title">Premium Garden Tools at 90%<br>Below Retail – Same Quality,<br>Fraction of the Cost</h2>
+      <p class="price-benefits__description">We buy surplus and end-of-line stock direct from UK suppliers — brand-new tools the big stores need to shift, fast. Because we take it in bulk, we get crazy-good prices and pass the savings straight to you.</p>
+      <p class="price-benefits__note">No middlemen, no fancy packaging. Just proper tools for a fraction of the cost.</p>
+    </div>
+
+    <div class="process">
+      <h2 class="process__title">How We Keep Prices So Low</h2>
+      <div class="process__steps">
+        <div class="process__step">
+          <div class="process__icon-wrapper">
+            <img src="{{ '/images/truck-box.png' | asset_url }}" alt="Truck with box" class="process__icon" width="80" height="80">
+          </div>
+          <h3 class="process__label">Directly work</h3>
+          <p class="process__sublabel">with UK suppliers<br>clearing stock</p>
+        </div>
+
+        <div class="process__step">
+          <div class="process__icon-wrapper">
+            <img src="{{ '/images/bulk-discount.png' | asset_url }}" alt="Bulk discount" class="process__icon" width="80" height="80">
+            <div class="process__discount-badge">
+              UP TO<br>90%<br>OFF
+            </div>
+          </div>
+          <h3 class="process__label">Buy in bulk</h3>
+          <p class="process__sublabel">at huge discounts</p>
+        </div>
+
+        <div class="process__step">
+          <div class="process__icon-wrapper">
+            <img src="{{ '/images/wallet-check.png' | asset_url }}" alt="Wallet with checkmark" class="process__icon" width="80" height="80">
+          </div>
+          <h3 class="process__label">Pass the</h3>
+          <p class="process__sublabel">savings on<br>to you</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Price Benefits",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Price Benefits",
+      "category": "Content"
+    }
+  ]
+}
+{% endschema %} 

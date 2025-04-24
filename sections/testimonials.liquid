@@ -1,0 +1,207 @@
+{% style %}
+.testimonials {
+  padding: 80px 0;
+  background: #ffffff;
+}
+
+.testimonials__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.testimonials__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 60px;
+}
+
+.testimonials__rating {
+  background: #8B4513;
+  color: #ffffff;
+  padding: 40px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.testimonials__rating-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.testimonials__stars {
+  color: #FFD700;
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+.testimonials__rating-text {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.testimonials__stats {
+  text-align: left;
+}
+
+.testimonials__stats-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #1a1a1a;
+}
+
+.testimonials__stat-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.testimonials__stat-icon {
+  width: 40px;
+  height: 40px;
+  color: var(--color-primary);
+}
+
+.testimonials__stat-text {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #4a4a4a;
+}
+
+.testimonials__reviews {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.testimonial-card {
+  background: #f8f8f8;
+  padding: 24px;
+  border-radius: 8px;
+}
+
+.testimonial-card__stars {
+  color: #FFD700;
+  margin-bottom: 12px;
+}
+
+.testimonial-card__title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #1a1a1a;
+}
+
+.testimonial-card__text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #4a4a4a;
+  margin-bottom: 16px;
+}
+
+.testimonial-card__author {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a1a1a;
+}
+
+.testimonial-card__location {
+  font-size: 14px;
+  color: #4a4a4a;
+}
+
+@media screen and (max-width: 768px) {
+  .testimonials__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .testimonials__reviews {
+    grid-template-columns: 1fr;
+  }
+}
+{% endstyle %}
+
+<div class="testimonials">
+  <div class="testimonials__container">
+    <div class="testimonials__grid">
+      <div class="testimonials__rating">
+        <h2 class="testimonials__rating-title">homedrop.co.uk is rated Excellent</h2>
+        <div class="testimonials__stars">★★★★★</div>
+        <p class="testimonials__rating-text">Based on 238 reviews</p>
+        <img src="{{ '/images/green-start.png' | asset_url }}" alt="Trustpilot" width="30" height="30">
+      </div>
+
+      <div class="testimonials__stats">
+        <h2 class="testimonials__stats-title">Customer Satisfaction</h2>
+        
+        <div class="testimonials__stat-item">
+          <svg class="testimonials__stat-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22 12H18L15 21L9 3L6 12H2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <p class="testimonials__stat-text">Of customers report major savings compared to shopping at traditional garden retailers.</p>
+        </div>
+
+        <div class="testimonials__stat-item">
+          <svg class="testimonials__stat-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2"/>
+            <path d="M8 14C8 14 9.5 16 12 16C14.5 16 16 14 16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M9 9H9.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M15 9H15.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <p class="testimonials__stat-text">Of our tools and equipment meet or exceed the quality standards of leading branded products.</p>
+        </div>
+
+        <div class="testimonials__stat-item">
+          <svg class="testimonials__stat-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2"/>
+            <path d="M8 14C8 14 9.5 16 12 16C14.5 16 16 14 16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M9 9H9.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M15 9H15.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <p class="testimonials__stat-text">Of customers return to purchase again within 6 months due to satisfaction with previous purchases.</p>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="testimonials__stats-title">Testimonials</h2>
+    <div class="testimonials__reviews">
+      <div class="testimonial-card">
+        <div class="testimonial-card__stars">★★★★★</div>
+        <h3 class="testimonial-card__title">Shopping Speed - WOW!</h3>
+        <p class="testimonial-card__text">Was really happy by the speed of the shipping. Got my order next day and the quality is amazing for the price.</p>
+        <p class="testimonial-card__author">James • Manchester</p>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-card__stars">★★★★★</div>
+        <h3 class="testimonial-card__title">Great!</h3>
+        <p class="testimonial-card__text">Had my eye on a product for sale. It was 70% off and best deal I've seen.</p>
+        <p class="testimonial-card__author">Rick • Leeds</p>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-card__stars">★★★★★</div>
+        <h3 class="testimonial-card__title">Great Customer Service</h3>
+        <p class="testimonial-card__text">I had some outstanding issues and they were resolved in minutes.</p>
+        <p class="testimonial-card__author">Oliver • London</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Testimonials"
+    }
+  ]
+}
+{% endschema %} 

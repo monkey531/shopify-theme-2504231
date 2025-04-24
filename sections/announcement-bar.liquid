@@ -1,0 +1,56 @@
+{% style %}
+.announcement-bar {
+  background-color: #1a1a1a;
+  overflow: hidden;
+  width: 100%;
+  height: 30px;
+  position: relative;
+}
+
+.announcement-bar__content {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  white-space: nowrap;
+  animation: scroll 20s linear infinite;
+}
+
+.announcement-bar__text {
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 0 20px;
+  letter-spacing: 0.5px;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+{% endstyle %}
+
+<div class="announcement-bar">
+  <div class="announcement-bar__content">
+    {% for i in (1..6) %}
+      <span class="announcement-bar__text">CONTACT US</span>
+      <span class="announcement-bar__text">UP TO 90% OFF</span>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Announcement Bar"
+    }
+  ]
+}
+{% endschema %} 

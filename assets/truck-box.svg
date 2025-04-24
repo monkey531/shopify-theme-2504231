@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <style>
+    .primary { fill: #E94B4B; }
+    .secondary { fill: #4a4a4a; }
+  </style>
+  <rect x="10" y="50" width="40" height="30" class="primary" rx="4"/>
+  <rect x="50" y="55" width="35" height="25" class="secondary" rx="4"/>
+  <circle cx="25" cy="85" r="8" class="secondary"/>
+  <circle cx="70" cy="85" r="8" class="secondary"/>
+  <rect x="20" y="30" width="25" height="20" class="primary" rx="2"/>
+  <path d="M45 40 L60 40 L60 60" fill="none" stroke="#4a4a4a" stroke-width="4"/>
+</svg> 

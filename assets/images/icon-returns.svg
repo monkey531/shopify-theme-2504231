@@ -1,0 +1,8 @@
+<svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Return Arrow -->
+  <path d="M10 30 C10 15 25 10 35 10 C45 10 50 20 50 30" stroke="#2B4C7E" stroke-width="3" fill="none"/>
+  <!-- Arrow Head -->
+  <path d="M10 30 L5 35 L15 35 L10 30" fill="#2B4C7E"/>
+  <!-- Box -->
+  <rect x="20" y="35" width="20" height="15" fill="#2B4C7E"/>
+</svg> 

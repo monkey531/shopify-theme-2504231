@@ -1,0 +1,130 @@
+{% style %}
+.hero {
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+  background-image: url({{ '/images/hero-bg.jpg' | asset_url }});
+  background-size: cover;
+  background-position: center;
+}
+
+.hero__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+}
+
+.hero__content {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  color: #ffffff;
+  width: 100%;
+}
+
+.hero__title {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+  color: #ffffff;
+}
+
+.hero__subtitle {
+  font-size: 20px;
+  margin-bottom: 30px;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.hero__button {
+  display: inline-block;
+  background-color: #ffffff;
+  color: #1E375F;
+  padding: 12px 30px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.hero__button:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-2px);
+}
+
+@media screen and (max-width: 768px) {
+  .hero {
+    height: 400px;
+    background: #1E375F;
+  }
+
+  .hero__title {
+    font-size: 36px;
+  }
+
+  .hero__subtitle {
+    font-size: 18px;
+  }
+}
+{% endstyle %}
+
+<div class="hero">
+  <div class="hero__overlay">
+    <div class="hero__content">
+      <h1 class="hero__title">{{ section.settings.title }}</h1>
+      <p class="hero__subtitle">{{ section.settings.subtitle }}</p>
+      {% if section.settings.button_link != blank %}
+        <a href="{{ section.settings.button_link }}" class="hero__button">
+          {{ section.settings.button_text }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Hero Banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "CLEARANCE SALE!"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subheading",
+      "default": "ALL ITEMS UP TO 90% OFF"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "DON'T MISS OUT!"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link",
+      "default": "/collections/all"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Banner",
+      "category": "Hero"
+    }
+  ]
+}
+{% endschema %} 

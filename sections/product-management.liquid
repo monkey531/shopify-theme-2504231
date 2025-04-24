@@ -1,0 +1,206 @@
+{% style %}
+.product-management {
+  padding: 60px 0;
+  background: #ffffff;
+}
+
+.product-management__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.product-management__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.product-management__title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+}
+
+.product-management__add-button {
+  background: #E32B2B;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.product-management__add-button:hover {
+  background: #C41E1E;
+}
+
+.product-management__table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.product-management__table th {
+  background: #f5f5f5;
+  padding: 16px;
+  text-align: left;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 2px solid #eee;
+}
+
+.product-management__table td {
+  padding: 16px;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+}
+
+.product-management__table tr:last-child td {
+  border-bottom: none;
+}
+
+.product-management__image {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.product-management__name {
+  font-weight: 500;
+  color: #333;
+  text-decoration: none;
+}
+
+.product-management__name:hover {
+  color: #E32B2B;
+}
+
+.product-management__price {
+  font-weight: 600;
+  color: #333;
+}
+
+.product-management__stock {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.product-management__stock--in {
+  background: #22C55E;
+  color: white;
+}
+
+.product-management__stock--out {
+  background: #ff4444;
+  color: white;
+}
+
+.product-management__actions {
+  display: flex;
+  gap: 8px;
+}
+
+.product-management__button {
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.product-management__button--edit {
+  background: #f5f5f5;
+  color: #333;
+}
+
+.product-management__button--delete {
+  background: #ff4444;
+  color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .product-management__table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+{% endstyle %}
+
+<div class="product-management">
+  <div class="product-management__container">
+    <div class="product-management__header">
+      <h2 class="product-management__title">Products</h2>
+      <a href="/admin/products/new" class="product-management__add-button">Add New Product</a>
+    </div>
+
+    <table class="product-management__table">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Stock</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for product in collections.all.products %}
+          <tr>
+            <td>
+              {% if product.featured_image %}
+                {{ product.featured_image | image_url: width: 120 | image_tag: class: 'product-management__image', loading: 'lazy' }}
+              {% else %}
+                {{ 'product-1' | placeholder_svg_tag: 'product-management__image' }}
+              {% endif %}
+            </td>
+            <td>
+              <a href="/admin/products/{{ product.id }}" class="product-management__name">
+                {{ product.title }}
+              </a>
+            </td>
+            <td class="product-management__price">
+              {{ product.price | money }}
+            </td>
+            <td>
+              {% if product.available %}
+                <span class="product-management__stock product-management__stock--in">In Stock</span>
+              {% else %}
+                <span class="product-management__stock product-management__stock--out">Out of Stock</span>
+              {% endif %}
+            </td>
+            <td>
+              <div class="product-management__actions">
+                <a href="/admin/products/{{ product.id }}/edit" class="product-management__button product-management__button--edit">Edit</a>
+                <a href="/admin/products/{{ product.id }}/delete" class="product-management__button product-management__button--delete">Delete</a>
+              </div>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product Management",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Product Management",
+      "category": "Management"
+    }
+  ]
+}
+{% endschema %} 

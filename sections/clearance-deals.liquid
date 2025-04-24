@@ -1,0 +1,176 @@
+{% style %}
+.clearance-deals {
+  background: #ffffff;
+}
+
+.clearance-deals__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.clearance-deals__left {
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.clearance-deals__title {
+  font-size: 32px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+}
+
+.clearance-deals__subtitle {
+  font-size: 16px;
+  color: #666666;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.clearance-deals__button {
+  display: inline-block;
+  padding: 12px 32px;
+  background: #E94B4B;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.clearance-deals__button:hover {
+  background: #d43c3c;
+}
+
+.clearance-deals__right {
+  background: #E94B4B;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+}
+
+.clearance-deals__promo-text {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.clearance-deals__marquee {
+  background: #1a1a1a;
+  color: #ffffff;
+  padding: 12px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.clearance-deals__marquee-content {
+  display: flex;
+  gap: 40px;
+  animation: scroll 20s linear infinite;
+}
+
+.clearance-deals__marquee-item {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+@media screen and (max-width: 768px) {
+  .clearance-deals__container {
+    grid-template-columns: 1fr;
+  }
+  
+  .clearance-deals__left {
+    padding: 40px 20px;
+  }
+  
+  .clearance-deals__right {
+    padding: 40px 20px;
+  }
+  
+  .clearance-deals__promo-text {
+    font-size: 20px;
+  }
+}
+{% endstyle %}
+
+<div class="clearance-deals">
+  <div class="clearance-deals__container">
+    <div class="clearance-deals__left">
+      <h2 class="clearance-deals__title">Clearance Deals</h2>
+      <p class="clearance-deals__subtitle">Premium garden tools and home essentials at unbeatable UK prices</p>
+      <a href="/collections/all" class="clearance-deals__button">Shop Now</a>
+    </div>
+    
+    <div class="clearance-deals__right">
+      <p class="clearance-deals__promo-text">Garden Tools up to 90% off</p>
+      <p class="clearance-deals__promo-text">DIY Equipment Clearance</p>
+      <p class="clearance-deals__promo-text">Free UK Delivery over £25</p>
+      <p class="clearance-deals__promo-text">New Items Added Weekly</p>
+      <p class="clearance-deals__promo-text">Premium Brands at Outlet Prices</p>
+      <p class="clearance-deals__promo-text">Garden Tools up to 90% off</p>
+      <p class="clearance-deals__promo-text">DIY Equipment Clearance</p>
+    </div>
+  </div>
+  
+  <div class="clearance-deals__marquee">
+    <div class="clearance-deals__marquee-content">
+      <span class="clearance-deals__marquee-item">Join over 100,000 UK Customers</span>
+      <span class="clearance-deals__marquee-item">Limited Time</span>
+      <span class="clearance-deals__marquee-item">Clearance</span>
+      <span class="clearance-deals__marquee-item">Join over 100,000 UK Customers</span>
+      <span class="clearance-deals__marquee-item">Limited Time</span>
+      <span class="clearance-deals__marquee-item">Clearance</span>
+      <span class="clearance-deals__marquee-item">Join over 100,000 UK Customers</span>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Clearance Deals",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Clearance Deals"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Premium garden tools and home essentials at unbeatable UK prices"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Clearance Deals"
+    }
+  ]
+}
+{% endschema %} 

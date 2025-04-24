@@ -1,0 +1,8 @@
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Stack of Boxes -->
+  <rect x="15" y="45" width="30" height="30" fill="#D32F2F"/>
+  <rect x="20" y="25" width="30" height="30" fill="#D32F2F" opacity="0.8"/>
+  <rect x="25" y="5" width="30" height="30" fill="#D32F2F" opacity="0.6"/>
+  <!-- Discount Symbol -->
+  <text x="45" y="65" font-family="Arial" font-size="24" font-weight="bold" fill="#FFF">%</text>
+</svg> 

@@ -1,0 +1,8 @@
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Coin Stack -->
+  <circle cx="40" cy="55" r="20" fill="#FFD700"/>
+  <circle cx="40" cy="45" r="20" fill="#FFD700" opacity="0.8"/>
+  <circle cx="40" cy="35" r="20" fill="#FFD700" opacity="0.6"/>
+  <!-- Dollar Sign -->
+  <text x="32" y="60" font-family="Arial" font-size="24" font-weight="bold" fill="#2B4C7E">$</text>
+</svg> 

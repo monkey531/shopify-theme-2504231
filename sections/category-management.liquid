@@ -1,0 +1,157 @@
+{% style %}
+.category-management {
+  padding: 60px 0;
+  background: #ffffff;
+}
+
+.category-management__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.category-management__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.category-management__title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+}
+
+.category-management__add-button {
+  background: #E32B2B;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.category-management__add-button:hover {
+  background: #C41E1E;
+}
+
+.category-management__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.category-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.category-card:hover {
+  transform: translateY(-4px);
+}
+
+.category-card__image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.category-card__content {
+  padding: 20px;
+}
+
+.category-card__title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.category-card__description {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.category-card__actions {
+  display: flex;
+  gap: 10px;
+}
+
+.category-card__button {
+  flex: 1;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.category-card__button--edit {
+  background: #f5f5f5;
+  color: #333;
+}
+
+.category-card__button--delete {
+  background: #ff4444;
+  color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .category-management__grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+  }
+}
+{% endstyle %}
+
+<div class="category-management">
+  <div class="category-management__container">
+    <div class="category-management__header">
+      <h2 class="category-management__title">Categories</h2>
+      <a href="/admin/categories/new" class="category-management__add-button">Add New Category</a>
+    </div>
+
+    <div class="category-management__grid">
+      {% for collection in collections %}
+        <div class="category-card">
+          {% if collection.image %}
+            {{ collection.image | image_url: width: 400 | image_tag: class: 'category-card__image', loading: 'lazy' }}
+          {% else %}
+            {{ 'collection-1' | placeholder_svg_tag: 'category-card__image' }}
+          {% endif %}
+          
+          <div class="category-card__content">
+            <h3 class="category-card__title">{{ collection.title }}</h3>
+            <p class="category-card__description">{{ collection.description | truncate: 100 }}</p>
+            <div class="category-card__actions">
+              <a href="/admin/collections/{{ collection.id }}/edit" class="category-card__button category-card__button--edit">Edit</a>
+              <a href="/admin/collections/{{ collection.id }}/delete" class="category-card__button category-card__button--delete">Delete</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Category Management",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Category Management",
+      "category": "Management"
+    }
+  ]
+}
+{% endschema %} 

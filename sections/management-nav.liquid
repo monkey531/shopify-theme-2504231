@@ -1,0 +1,110 @@
+{% style %}
+.management-nav {
+  background: #ffffff;
+  padding: 20px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.management-nav__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.management-nav__menu {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.management-nav__item {
+  position: relative;
+}
+
+.management-nav__link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.management-nav__link:hover {
+  background: #f5f5f5;
+}
+
+.management-nav__link--active {
+  background: #E32B2B;
+  color: white;
+}
+
+.management-nav__icon {
+  width: 20px;
+  height: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .management-nav__menu {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+{% endstyle %}
+
+<nav class="management-nav">
+  <div class="management-nav__container">
+    <ul class="management-nav__menu">
+      <li class="management-nav__item">
+        <a href="/admin" class="management-nav__link {% if request.path == '/admin' %}management-nav__link--active{% endif %}">
+          <svg class="management-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Dashboard
+        </a>
+      </li>
+      <li class="management-nav__item">
+        <a href="/admin/categories" class="management-nav__link {% if request.path contains '/admin/categories' %}management-nav__link--active{% endif %}">
+          <svg class="management-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M4 6h16M4 12h16M4 18h16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Categories
+        </a>
+      </li>
+      <li class="management-nav__item">
+        <a href="/admin/products" class="management-nav__link {% if request.path contains '/admin/products' %}management-nav__link--active{% endif %}">
+          <svg class="management-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Products
+        </a>
+      </li>
+      <li class="management-nav__item">
+        <a href="/admin/orders" class="management-nav__link {% if request.path contains '/admin/orders' %}management-nav__link--active{% endif %}">
+          <svg class="management-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Orders
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+{% schema %}
+{
+  "name": "Management Navigation",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Management Navigation",
+      "category": "Management"
+    }
+  ]
+}
+{% endschema %} 

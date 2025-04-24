@@ -1,0 +1,10 @@
+<svg width="600" height="400" viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shed Base -->
+  <path d="M150 200 L450 200 L450 350 L150 350 Z" fill="#B87A3D"/>
+  <!-- Shed Roof -->
+  <path d="M100 200 L300 100 L500 200" stroke="#4A3728" stroke-width="20" fill="#5C4434"/>
+  <!-- Door -->
+  <rect x="275" y="250" width="50" height="100" fill="#4A3728"/>
+  <!-- Door Handle -->
+  <circle cx="315" cy="300" r="5" fill="#000000"/>
+</svg> 

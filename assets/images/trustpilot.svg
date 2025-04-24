@@ -1,0 +1,12 @@
+<svg width="200" height="100" viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="200" height="100" fill="#B31E1E"/>
+  <!-- Stars -->
+  <g transform="translate(20, 40)">
+    {% for i in (1..5) %}
+      <path d="M{{ i | times: 30 }} 0 L{{ i | times: 30 | plus: 5 }} 15 L{{ i | times: 30 | plus: 15 }} 15 L{{ i | times: 30 | plus: 7 }} 25 L{{ i | times: 30 | plus: 10 }} 40 L{{ i | times: 30 }} 30 L{{ i | times: 30 | minus: 10 }} 40 L{{ i | times: 30 | minus: 7 }} 25 L{{ i | times: 30 | minus: 15 }} 15 L{{ i | times: 30 | minus: 5 }} 15 Z" fill="#00B67A"/>
+    {% endfor %}
+  </g>
+  <!-- Text -->
+  <text x="100" y="80" font-family="Arial" font-size="14" fill="white" text-anchor="middle">Trustpilot</text>
+</svg> 

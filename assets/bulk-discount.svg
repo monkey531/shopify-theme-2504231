@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <style>
+    .primary { fill: #E94B4B; }
+    .secondary { fill: #4a4a4a; }
+    .accent { fill: #F5A623; }
+    .text { fill: white; font-family: Arial, sans-serif; font-weight: bold; }
+  </style>
+  <rect x="20" y="40" width="30" height="30" class="secondary" rx="4"/>
+  <rect x="25" y="35" width="30" height="30" class="secondary" rx="4"/>
+  <rect x="30" y="30" width="30" height="30" class="primary" rx="4"/>
+  <circle cx="70" cy="40" r="15" class="accent"/>
+  <text x="60" y="45" class="text" font-size="12">90%</text>
+  <text x="60" y="55" class="text" font-size="8">OFF</text>
+</svg> 

@@ -1,0 +1,117 @@
+{% style %}
+.promise {
+  background-color: #1A1E23;
+  color: #ffffff;
+  padding: 60px 0;
+}
+
+.promise__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.promise__title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+.promise__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.promise__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.promise__icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 15px;
+  fill: currentColor;
+}
+
+.promise__item-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.promise__item-text {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #B8B8B8;
+}
+
+@media screen and (max-width: 768px) {
+  .promise__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .promise__grid {
+    grid-template-columns: 1fr;
+  }
+}
+{% endstyle %}
+
+<div class="promise">
+  <div class="promise__container">
+    <h2 class="promise__title">We Promise to...</h2>
+    <div class="promise__grid">
+      <div class="promise__item">
+        <div class="promise__icon">
+          {% render 'icon-delivery' %}
+        </div>
+        <h3 class="promise__item-title">Fast UK Delivery</h3>
+        <p class="promise__item-text">Free shipping on all UK orders over £25. We dispatch within 24 hours so you can start enjoying your garden sooner.</p>
+      </div>
+
+      <div class="promise__item">
+        <div class="promise__icon">
+          {% render 'icon-guarantee' %}
+        </div>
+        <h3 class="promise__item-title">Clearance Guarantee</h3>
+        <p class="promise__item-text">All products guaranteed at 30-50% below retail price. We source quality overstock so you save more on premium brands.</p>
+      </div>
+
+      <div class="promise__item">
+        <div class="promise__icon">
+          {% render 'icon-quality' %}
+        </div>
+        <h3 class="promise__item-title">Garden Quality</h3>
+        <p class="promise__item-text">Every tool and product tested for durability and performance. Our garden experts only select items that meet our quality standards.</p>
+      </div>
+
+      <div class="promise__item">
+        <div class="promise__icon">
+          {% render 'icon-returns' %}
+        </div>
+        <h3 class="promise__item-title">Easy Returns</h3>
+        <p class="promise__item-text">Hassle-free 90-day return policy if you're not completely satisfied with your purchase. Customer satisfaction guaranteed.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Promise Section",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Promise Section",
+      "category": "Content"
+    }
+  ]
+}
+{% endschema %} 

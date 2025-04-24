@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <style>
+    .primary { fill: #E94B4B; }
+    .secondary { fill: #4a4a4a; }
+    .success { fill: #4CAF50; }
+  </style>
+  <rect x="20" y="30" width="60" height="40" class="secondary" rx="6"/>
+  <rect x="25" y="35" width="50" height="30" class="primary" rx="4"/>
+  <circle cx="70" cy="65" r="15" class="success"/>
+  <path d="M63 65 L68 70 L78 60" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg> 

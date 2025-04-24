@@ -1,0 +1,235 @@
+{% style %}
+  .why-choose-us {
+    padding: 20px 0;
+    background-color: #ffffff;
+  }
+
+  .why-choose-us__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  .why-choose-us__title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #333;
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+
+  .why-choose-us__description {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #666;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .comparison-table {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 24px;
+  }
+
+  .comparison-header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .w-full {
+    width: 100%;
+  }
+  
+  .comparison-header__cells {
+    display:flex;
+    justify-content: right;
+  }
+
+  .comparison-header__cell {
+    width: 64px;
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #ffffff;
+    padding-bottom: 4px;
+  }
+
+  .comparison-header__cell:first-child {
+    margin-right: 12px;
+  }
+
+  .comparison-body {
+    display: flex;
+    color: #ffffff;
+    border-radius: 5px;
+    background-color: #E32B2B;
+    border: 1px solid #333333;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.9);
+  }
+
+  .border-bottom {
+    border-bottom: 1px solid #dee1e6;
+  }
+
+  .pr-2 {
+    padding-right: .5rem;
+  }
+  
+  .pl-2 {
+    padding-left: .5rem;
+  }
+
+  .comparison-cell {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .comparison-titles {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    padding-left: .5rem;
+  }
+
+  .comparison-title {
+    width: 100%;
+    padding: .5rem;
+  }
+
+  .comparison-actions {
+    display: flex;
+    flex-direction: column;
+    padding: 0 .5rem;
+    width: 200px;
+    background-color: #ffffff;
+  }
+
+  .comparison-icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .5rem;
+    background-color: #ffffff;
+  }
+
+  .comparison-icon {
+    padding: 0 1rem;
+    margin: 0;
+  }
+  .check-icon {
+    color: #22C55E;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .x-icon {
+    color: #333;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  @media screen and (max-width: 768px) {
+    .why-choose-us {
+      padding: 60px 0;
+    }
+
+    .comparison-table {
+      max-width: 420px;
+      padding: 20px;
+    }
+
+    .comparison-cell {
+      font-size: 14px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .comparison-table {
+      margin: 0 12px;
+      padding: 16px;
+    }
+
+    .comparison-header__cell,
+    .comparison-icon {
+      width: 60px;
+    }
+
+    .comparison-icons {
+      gap: 8px;
+    }
+  }
+{% endstyle %}
+
+<div class="why-choose-us">
+  <div class="why-choose-us__container">
+    <div class="why-choose-us__content">
+      <h2 class="why-choose-us__title">Why Choose Us?</h2>
+      <p class="why-choose-us__description">Great vetted high quality products, massive clearance sale prices and extremely fast shipping!</p>
+    </div>
+    <div class="comparison-table">
+      <div class="comparison-header">
+        <div class="w-full"></div>
+        <div class="comparison-header__cells">
+          <div class="comparison-header__cell">My Store</div>
+          <div class="comparison-header__cell">Others</div>
+        </div>
+      </div>
+      <div class="comparison-body">
+        <div class="comparison-titles">
+          <div class="comparison-title">Same Day Shipping</div>
+          <div class="comparison-title">90 Day Refund</div>
+          <div class="comparison-title">Human Quality-Verified Products</div>
+        </div>
+        <div class="comparison-actions">
+          <div class="comparison-icons">
+              <div class="comparison-icon">
+                <span class="check-icon">✓</span>
+              </div>
+              <div class="comparison-icon">
+                <span class="x-icon">✕</span>
+              </div>
+            </div>
+          <div class="comparison-icons">
+              <div class="comparison-icon">
+                <span class="check-icon">✓</span>
+              </div>
+              <div class="comparison-icon">
+                <span class="x-icon">✕</span>
+              </div>
+            </div>
+          <div class="comparison-icons">
+              <div class="comparison-icon">
+                <span class="check-icon">✓</span>
+              </div>
+              <div class="comparison-icon">
+                <span class="x-icon">✕</span>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Why Choose Us",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Why Choose Us",
+      "category": "Content"
+    }
+  ]
+}
+{% endschema %}

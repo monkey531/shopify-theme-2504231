@@ -1,0 +1,10 @@
+<svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Clock Face -->
+  <circle cx="30" cy="30" r="25" stroke="#D32F2F" stroke-width="2" fill="none"/>
+  <!-- Clock Hands -->
+  <line x1="30" y1="30" x2="30" y2="15" stroke="#D32F2F" stroke-width="2"/>
+  <line x1="30" y1="30" x2="40" y2="30" stroke="#D32F2F" stroke-width="2"/>
+  <!-- Speed Lines -->
+  <path d="M45 15 L50 10" stroke="#D32F2F" stroke-width="2"/>
+  <path d="M45 45 L50 50" stroke="#D32F2F" stroke-width="2"/>
+</svg> 
